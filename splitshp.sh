@@ -13,7 +13,7 @@ else
    for FIELD_VALUE in $(tail -n +2 temp.csv);
    do
       echo  Processing $FIELD_VALUE ...
-      ogr2ogr -sql "SELECT * FROM $DATASET where $FIELD_NAME = '$FIELD_VALUE'" -f 'ESRI Shapefile' ${DATASET}_${FIELD_VALUE}.shp $SHAPEFILE
+      ogr2ogr -sql "SELECT * FROM $DATASET where $FIELD_NAME = '$FIELD_VALUE'" -f 'ESRI Shapefile' ${FIELD_VALUE/ /_}.shp $SHAPEFILE
    done
 fi
 rm temp.csv
